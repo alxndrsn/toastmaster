@@ -1,0 +1,15 @@
+{
+  "name": "toastmaster-webapp",
+  "version": "0.1.0",
+  "description": "Simple app for displaying alerts, or Toasts on android",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha --timeout 200 test/**/*.js"
+  },
+  "author": "Alex Anderson",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.3.5",
+    "serve-static": "^1.9.3"
+  }
+}
