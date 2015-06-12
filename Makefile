@@ -17,8 +17,8 @@ webview-deploy:
 webapp-start:
 	cd webapp && npm install && npm start
 
-crosswalk: crosswalk-deploy android-logs
-crosswalk-deploy:
+crosswalk: crosswalk-build crosswalk-deploy android-logs
+crosswalk-build:
 	-rm -rf ${XWALK_BUILD}
 	-mkdir ${XWALK_BUILD}
 	cd ${XWALK_BUILD} && \
@@ -26,4 +26,15 @@ crosswalk-deploy:
 			--package=toastmaster.crosswalk \
 			--manifest=${CURDIR}/crosswalk/manifest.json \
 			--app-version=${XWALK_APP_VERSION}
+crosswalk-deploy:
 	${ADB} install -r ${XWALK_BUILD}/*_${XWALK_APP_VERSION}_arm.apk
+
+crosswalk-docker-init:
+	docker build --tag=android-builder .
+crosswalk-docker-build:
+	docker run -i -t android-builder bash '-c' 'echo hello && \
+		echo "path: $PATH" && \
+		ls /opt/android-sdk-linux/build-tools/22.0.1 && \
+		git clone http://github.com/alxndrsn/toastmaster.git && \
+		cd toastmaster && \
+		CROSSWALK_HOME=/opt/crosswalk/crosswalk-13.42.319.11 make crosswalk-build'
