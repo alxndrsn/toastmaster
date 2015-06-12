@@ -4,14 +4,15 @@ EMULATOR = ${ANDROID_HOME}/tools/emulator
 XWALK_APP_VERSION = 0.1.0
 XWALK_BUILD = crosswalk/build
 
-android: android-deploy android-logs
 android-emulator:
 	nohup ${EMULATOR} -avd test -wipe-data > emulator.log 2>&1 &
 	${ADB} wait-for-device
 android-logs:
 	${ADB} shell logcat
-android-deploy:
-	cd android && ./gradlew --daemon installDebug
+
+webview: webview-deploy android-logs
+webview-deploy:
+	cd webview && ./gradlew --daemon installDebug
 
 webapp-start:
 	cd webapp && npm install && npm start
