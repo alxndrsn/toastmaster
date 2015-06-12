@@ -10,7 +10,12 @@
 		<script>
 		  $(function() {
 		    var makeToast = function(toast) {
-		      alert('A toast: TO ' + toast.toUpperCase() + '!');
+		      toast = 'A toast: TO ' + toast.toUpperCase() + '!';
+		      if(window.androidToaster) {
+		        window.androidToaster.toast(toast);
+		      } else {
+		        alert(toast);
+		      }
 		    };
 		    $('#btnMakeToast').click(function() {
 		      makeToast($('#txtToast').val());
