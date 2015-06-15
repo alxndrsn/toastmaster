@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Toastmaster</title>
+		<script src="jquery-2.1.4.min.js"></script>
+	</head>
+	<body>
+		<h1>Propose a Toast</h1>
+		<input type="text" id="txtToast"/>
+		<button id="btnMakeToast">Toast!</button>
+		<script>
+		  $(function() {
+		    var makeToast = function(toast) {
+		      toast = 'A toast: TO ' + toast.toUpperCase() + '!';
+		      if(window.androidToaster) {
+		        window.androidToaster.toast(toast);
+		      } else {
+		        alert(toast);
+		      }
+		    };
+		    $('#btnMakeToast').click(function() {
+		      makeToast($('#txtToast').val());
+		    });
+		  });
+		</script>
+	</body>
+</html>
