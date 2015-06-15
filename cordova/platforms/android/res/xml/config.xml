@@ -6,9 +6,10 @@
         <param name="onload" value="true" />
     </feature>
     <preference name="webView" value="org.crosswalk.engine.XWalkWebViewEngine" />
-    <allow-intent href="market:*" />
-    <config-file parent="/*" target="config.xml">
-    </config-file>
+    <feature name="Toast">
+        <param name="android-package" value="toastmaster.cordova.ToastPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Toastmaster Cordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -24,8 +25,4 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <feature name="Toast">
-        <param name="android-package" value="toastmaster.cordova" />
-        <param name="onload" value="true" />
-    </feature>
 </widget>

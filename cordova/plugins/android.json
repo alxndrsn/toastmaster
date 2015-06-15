@@ -17,7 +17,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"toastmaster.cordova\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"toastmaster.cordova.ToastPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         }
                     ]

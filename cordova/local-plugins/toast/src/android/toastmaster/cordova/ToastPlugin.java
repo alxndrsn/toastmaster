@@ -7,6 +7,7 @@ import org.json.*;
 
 public class ToastPlugin extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+		log("execute() :: action=%s, args=%s", action, args);
 		if(action.equals("toast")) {
 			toast(args.getString(0));
 		} else {
@@ -18,7 +19,11 @@ public class ToastPlugin extends CordovaPlugin {
 	}
 
 	private void toast(String toast) {
-		Toast.makeText(MainActivity.CONTEXT, toast, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this.cordova.getActivity(), toast, Toast.LENGTH_SHORT).show();
+	}
+
+	private void log(String message, Object... args) {
+		System.out.println("LOG | ToastPlugin | " + String.format(message, args));
 	}
 }
 
