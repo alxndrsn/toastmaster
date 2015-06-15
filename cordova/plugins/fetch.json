@@ -14,5 +14,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-toast": {
+        "source": {
+            "type": "local",
+            "path": "local-plugins/toast"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

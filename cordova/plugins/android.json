@@ -15,6 +15,10 @@
                         {
                             "xml": "<preference name=\"webView\" value=\"org.crosswalk.engine.XWalkWebViewEngine\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"toastmaster.cordova\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -26,6 +30,9 @@
             "PACKAGE_NAME": "toastmaster.cordova"
         },
         "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "toastmaster.cordova"
+        },
+        "cordova-plugin-toast": {
             "PACKAGE_NAME": "toastmaster.cordova"
         }
     },
