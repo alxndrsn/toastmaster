@@ -23,8 +23,8 @@
 		      } else if(window.cordova) {
 		        log('using cordova...');
 		        cordova.exec(
-			    function() { console.log('[toast] success with ' + arguments.length + ' args'); },
-			    function() { console.log('[toast] error with ' + arguments.length + ' args'); },
+			    function() { log('success with ' + arguments.length + ' args'); },
+			    function() { log('error with ' + arguments.length + ' args'); },
 			    'toast', 'toast', [toast]);
 		      } else {
 		        log('using browser...');
