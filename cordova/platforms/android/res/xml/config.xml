@@ -7,7 +7,7 @@
     </feature>
     <preference name="webView" value="org.crosswalk.engine.XWalkWebViewEngine" />
     <allow-intent href="market:*" />
-    <name>Main</name>
+    <name>Toastmaster Cordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
