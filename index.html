@@ -19,7 +19,7 @@
 		      console.log('LOG | ' + message);
 		      $('#log').append(message + '\n');
 		    }
-		    function debug() { for(prop in window) if(window.hasOwnProperty(prop)) window.log(prop + ' -> ' + window[prop]); }
+		    function debug() { for(prop in window) if(window.hasOwnProperty(prop)) log(prop + ' -> ' + window[prop]); }
 		    var makeToast = function(toast) {
 		      toast = 'A toast: TO ' + toast.toUpperCase() + '!';
 		      if(window.androidToaster) {
