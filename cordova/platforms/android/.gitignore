@@ -1,0 +1,7 @@
+# Non-project-specific build files:
+local.properties
+
+# Gradle
+/build/
+/.gradle/
+

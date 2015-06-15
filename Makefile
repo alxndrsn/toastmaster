@@ -38,3 +38,9 @@ crosswalk-docker-build:
 		git clone http://github.com/alxndrsn/toastmaster.git && \
 		cd toastmaster && \
 		CROSSWALK_HOME=/opt/crosswalk/crosswalk-13.42.319.11 make crosswalk-build'
+
+cordova: cordova-build cordova-deploy
+cordova-build:
+	cd cordova && cordova build android
+cordova-deploy:
+	cd cordova && cordova run android
