@@ -23,7 +23,7 @@
 		      if(window.androidToaster) {
 		        log('using android...');
 		        window.androidToaster.toast(toast);
-		      } else if(window.cordova || cordova) {
+		      } else if(window.cordova) {
 		        log('using cordova...');
 		        cordova.exec(
 			    function() { log('success with ' + arguments.length + ' args'); },
