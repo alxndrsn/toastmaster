@@ -39,8 +39,10 @@ crosswalk-docker-build:
 		cd toastmaster && \
 		CROSSWALK_HOME=/opt/crosswalk/crosswalk-13.42.319.11 make crosswalk-build'
 
-cordova: cordova-build cordova-deploy
+cordova: cordova-build cordova-deploy-to-any-available
 cordova-build:
 	cd cordova && cordova build android
-cordova-deploy:
+cordova-deploy-to-emulator:
 	cd cordova && cordova run android
+cordova-deploy-to-any-available:
+	${ADB} install -r cordova/platforms/android/build/outputs/apk/android-armv7-debug.apk
