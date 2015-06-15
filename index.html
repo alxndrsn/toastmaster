@@ -7,18 +7,27 @@
 		<h1>Propose a Toast</h1>
 		<input type="text" id="txtToast"/>
 		<button id="btnMakeToast">Toast!</button>
+		<div>
+			<pre><code id="log"></code></pre>
+		</div>
 		<script>
 		  $(function() {
+		    function log(message) {
+		      $('#log').append(message + '\n');
+		    }
 		    var makeToast = function(toast) {
 		      toast = 'A toast: TO ' + toast.toUpperCase() + '!';
 		      if(window.androidToaster) {
+		        log('using android...');
 		        window.androidToaster.toast(toast);
 		      } else if(window.cordova) {
+		        log('using cordova...');
 		        cordova.exec(
 			    function() { console.log('[toast] success with ' + arguments.length + ' args'); },
 			    function() { console.log('[toast] error with ' + arguments.length + ' args'); },
 			    'toast', 'toast', [toast]);
 		      } else {
+		        log('using browser...');
 		        alert(toast);
 		      }
 		    };
