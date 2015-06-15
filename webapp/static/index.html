@@ -13,6 +13,11 @@
 		      toast = 'A toast: TO ' + toast.toUpperCase() + '!';
 		      if(window.androidToaster) {
 		        window.androidToaster.toast(toast);
+		      } else if(window.cordova) {
+		        cordova.exec(
+			    function() { console.log('[toast] success with ' + arguments.length + ' args'); },
+			    function() { console.log('[toast] error with ' + arguments.length + ' args'); },
+			    'toast', 'toast', [toast]);
 		      } else {
 		        alert(toast);
 		      }
