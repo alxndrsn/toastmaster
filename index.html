@@ -12,12 +12,14 @@
 		<div>
 			<pre><code id="log"></code></pre>
 		</div>
+		<button id="btnDebug">debug</button>
 		<script>
 		  $(function() {
 		    function log(message) {
 		      console.log('LOG | ' + message);
 		      $('#log').append(message + '\n');
 		    }
+		    function debug() { for(prop in window) if(window.hasOwnProperty(prop)) window.log(prop + ' -> ' + window[prop]); }
 		    var makeToast = function(toast) {
 		      toast = 'A toast: TO ' + toast.toUpperCase() + '!';
 		      if(window.androidToaster) {
@@ -43,6 +45,7 @@
 		    $('#btnMakeToast').click(function() {
 		      makeToast($('#txtToast').val());
 		    });
+		    $('btnDebug').click(debug);
 		  });
 		</script>
 	</body>
