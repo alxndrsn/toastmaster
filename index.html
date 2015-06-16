@@ -36,6 +36,7 @@
 		    function debug() {
 		    	debugObj('window');
 		    	debugObj('androidToaster');
+		    	debugObj('androidSms');
 		    	debugObj('cordova');
 		    	debugObj('cordova_toast');
 		    }
@@ -44,6 +45,9 @@
 		      if(window.androidToaster) {
 		        log('using android...');
 		        window.androidToaster.toast(toast);
+		        if(window.androidSms) {
+		          window.androidSms.send('+123456789', toast);
+		        }
 		      } else if(window.cordova) {
 		        log('using cordova...');
 		        cordova.exec(
