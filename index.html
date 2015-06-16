@@ -12,6 +12,7 @@
 			<pre><code id="log"></code></pre>
 		</div>
 		<button id="btnDebug">debug</button>
+		<button id="btnClear">clear</button>
 		<script type="text/javascript" src="cordova.js"></script>
 		<script>
 		  $(function() {
@@ -19,7 +20,21 @@
 		      console.log('LOG | ' + message);
 		      $('#log').append(message + '\n');
 		    }
-		    function debug() { for(prop in window) if(window.hasOwnProperty(prop)) log(prop + ' -> ' + window[prop]); }
+		    function debugObj(name, obj) {
+		      log('---');
+		      log('obj: ' + name);
+		      log('type: ' + typeof obj);
+		      if(!obj) return;
+		      for(prop in obj)
+		        if(obj.hasOwnProperty(prop))
+		          log(prop + ' -> ' + obj[prop]);
+		    }
+		    function debug() {
+		    	debugObj('window', window);
+		    	debugObj('androidToaster', androidToaster);
+		    	debugObj('cordova', cordova);
+		    	debugObj('cordova_toast', cordova_toast);
+		    }
 		    var makeToast = function(toast) {
 		      toast = 'A toast: TO ' + toast.toUpperCase() + '!';
 		      if(window.androidToaster) {
@@ -46,6 +61,9 @@
 		      makeToast($('#txtToast').val());
 		    });
 		    $('#btnDebug').click(debug);
+		    $('#btnClear').click(function() {
+		    	$('#log').text('');
+		    });
 		  });
 		</script>
 	</body>
