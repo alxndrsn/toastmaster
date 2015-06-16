@@ -14,6 +14,10 @@ webview: webview-deploy android-logs
 webview-deploy:
 	cd webview && ./gradlew --daemon installDebug
 
+xwalk-embed: xwalk-embed-deploy android-logs
+xwalk-embed-deploy:
+	cd xwalk-embed && ./gradlew --daemon installDebug
+
 webapp-start:
 	cd webapp && npm install && npm start
 
@@ -39,7 +43,7 @@ crosswalk-docker-build:
 		cd toastmaster && \
 		CROSSWALK_HOME=/opt/crosswalk/crosswalk-13.42.319.11 make crosswalk-build'
 
-cordova: cordova-build cordova-deploy-to-any-available
+cordova: cordova-build cordova-deploy-to-any-available android-logs
 cordova-build:
 	cd cordova && cordova build android
 cordova-deploy-to-emulator:
