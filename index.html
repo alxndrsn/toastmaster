@@ -24,7 +24,10 @@
 		      log('---');
 		      log('obj: ' + name);
 		      log('type: ' + typeof obj);
-		      if(!obj) return;
+		      if(typeof obj === 'undefined' || obj === null) return;
+		      try {
+		      	log('json: ' + JSON.stringify(obj));
+		      } catch(e) { log('Got this when trying to JSONify: ' + e);
 		      for(prop in obj)
 		        if(obj.hasOwnProperty(prop))
 		          log(prop + ' -> ' + obj[prop]);
