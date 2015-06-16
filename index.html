@@ -20,7 +20,8 @@
 		      console.log('LOG | ' + message);
 		      $('#log').append(message + '\n');
 		    }
-		    function debugObj(name, obj) {
+		    function debugObj(name) {
+		      var obj = window[name];
 		      log('---');
 		      log('obj: ' + name);
 		      log('type: ' + typeof obj);
@@ -33,10 +34,10 @@
 		          log(prop + ' -> ' + obj[prop]);
 		    }
 		    function debug() {
-		    	debugObj('window', window);
-		    	debugObj('androidToaster', androidToaster);
-		    	debugObj('cordova', cordova);
-		    	debugObj('cordova_toast', cordova_toast);
+		    	debugObj('window');
+		    	debugObj('androidToaster');
+		    	debugObj('cordova');
+		    	debugObj('cordova_toast');
 		    }
 		    var makeToast = function(toast) {
 		      toast = 'A toast: TO ' + toast.toUpperCase() + '!';
